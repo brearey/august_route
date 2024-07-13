@@ -1,9 +1,9 @@
 const db = require('../persistence/db');
 
 module.exports.up = async function (next) {
-  const client = await db.connect();
+	const client = await db.connect();
 
-  await client.query(`
+	await client.query(`
   CREATE TABLE IF NOT EXISTS users (
     id uuid PRIMARY KEY,
     email text UNIQUE,
@@ -16,24 +16,24 @@ module.exports.up = async function (next) {
   );
   `);
 
-  await client.query(`
+	await client.query(`
   CREATE INDEX users_email on users (email);
 
   CREATE INDEX sessions_user on sessions (user_id);
   `);
 
-  await client.release(true);
-  next();
+	await client.release(true);
+	next();
 };
 
 module.exports.down = async function (next) {
-  const client = await db.connect();
+	const client = await db.connect();
 
-  await client.query(`
+	await client.query(`
   DROP TABLE sessions;
   DROP TABLE users;
   `);
 
-  await client.release(true);
-  next();
+	await client.release(true);
+	next();
 };
