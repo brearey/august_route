@@ -1,26 +1,42 @@
-const {Router} = require('express');
+const { Router } = require('express');
 const User = require('../persistence/users');
 
 const router = new Router();
 
 router.post('/', async (request, response) => {
 	try {
-		const {email, password} = request.body;
+		const { email, password } = request.body;
 		if (!email || !password) {
 			return response
 				.status(400)
-				.json({message: 'email and password must be provided'});
+				.json({ message: 'email and password must be provided' });
 		}
 
 		const user = await User.create(email, password);
 		if (!user) {
-			return response.status(400).json({message: 'User already exists'});
+			return response.status(400).json({ message: 'User already exists' });
 		}
 
 		return response.status(200).json(user);
 	} catch (error) {
 		console.error(
 			`createUser({ email: ${request.body.email} }) >> Error: ${error.stack}`
+		);
+		response.status(500).json();
+	}
+});
+
+router.get('/me', async (request, response) => {
+	try {
+		const user = await User.find(request.query.email);
+		if (!user) {
+			return response.status(400).json({ message: 'User already exists' });
+		}
+
+		return response.status(200).json(user);
+	} catch (error) {
+		console.error(
+			`createUser({ email: ${request.query.email} }) >> Error: ${error.stack}`
 		);
 		response.status(500).json();
 	}
