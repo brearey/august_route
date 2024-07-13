@@ -30,7 +30,7 @@ router.get('/me', async (request, response) => {
 	try {
 		const user = await User.find(request.query.email);
 		if (!user) {
-			return response.status(400).json({ message: 'User already exists' });
+			return response.status(404).json({ message: `User with email: ${request.query.email} not found` });
 		}
 
 		return response.status(200).json(user);
