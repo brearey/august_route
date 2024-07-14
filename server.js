@@ -1,21 +1,22 @@
 require('dotenv').config();
 const express = require('express');
-
 // Handlebars import
 const { engine } = require('express-handlebars');
-
 const morgan = require('morgan');
 const clientSession = require('client-sessions');
 const helmet = require('helmet');
-
-const app = express();
 const api = require('./src/api');
 
+const app = express();
+
 // Handlebars init
-app.engine('hbs', engine());
-app.set('view engine', 'hbs');
+app.engine('handlebars', engine({
+	defaultLayout: 'main'
+}));
+app.set('view engine', 'handlebars');
 app.set('views', './src/views');
 
+app.use(express.static(__dirname + '/src/public'));
 app.use(morgan('short'));
 app.use(express.json());
 app.use(

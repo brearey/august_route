@@ -13,6 +13,6 @@ router.use('/api/sessions', session);
 
 router.use('/', mainRouter);
 
-router.use('*', (request, response) => response.sendStatus(404));
+router.use('*', (request, response) => response.render('404'));
 
 module.exports = router;

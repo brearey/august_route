@@ -4,10 +4,10 @@ const router = new Router();
 
 router.get('/', (request, response) => {
 	try {
-		return response.render('index');
+		return response.render('home');
 	} catch (error) {
 		console.error(`Error: ${error.stack}`);
-		response.status(500).json();
+		response.status(500).render('500');
 	}
 });
 
@@ -16,7 +16,7 @@ router.get('/about', (request, response) => {
 		return response.render('about');
 	} catch (error) {
 		console.error(`Error: ${error.stack}`);
-		response.status(500).json();
+		response.status(500).render('500');
 	}
 });
 
