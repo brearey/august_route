@@ -1,9 +1,9 @@
 {
   "name": "august_router",
-  "private": true,
+  "private": false,
   "version": "1.0.0",
   "description": "August",
-  "main": "config.js",
+  "main": "server.js",
   "scripts": {
     "test": "xo",
     "lint": "xo",
@@ -17,8 +17,7 @@
     "express",
     "postgres"
   ],
-  "author": "Hugo Di Francesco",
-  "license": "MIT",
+  "author": "brearey",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "client-sessions": "^0.8.0",

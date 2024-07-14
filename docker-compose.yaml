@@ -6,12 +6,12 @@ services:
     depends_on:
       - postgres
     environment:
-      DATABASE_URL: postgres://user:pass@postgres:5432/db
+      DATABASE_URL: ${DATABASE_URL}
       NODE_ENV: development
-      PORT: 80
+      PORT: ${PORT}
     ports:
-      - "80:80"
-    command: npm run dev
+      - "${PORT}:${PORT}"
+    command: npm run start
     volumes:
       - .:/app/
       - /app/node_modules
@@ -19,8 +19,8 @@ services:
   postgres:
     image: postgres:10.4
     ports:
-      - "35432:5432"
+      - "5432:5432"
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: pass
-      POSTGRES_DB: db
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
