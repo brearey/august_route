@@ -5,10 +5,14 @@ const router = new Router();
 
 const user = require('./user');
 const session = require('./session');
+const mainRouter = require('./main');
 
 router.get('/health', (request, response) => response.sendStatus(200));
 router.use('/api/users', user);
 router.use('/api/sessions', session);
+
+router.use('/', mainRouter);
+
 router.use('*', (request, response) => response.sendStatus(404));
 
 module.exports = router;
