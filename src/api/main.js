@@ -4,7 +4,16 @@ const router = new Router();
 
 router.get('/', (request, response) => {
 	try {
-		return response.status(200).send('<h1>Main page</h1>');
+		return response.render('index');
+	} catch (error) {
+		console.error(`Error: ${error.stack}`);
+		response.status(500).json();
+	}
+});
+
+router.get('/about', (request, response) => {
+	try {
+		return response.render('about');
 	} catch (error) {
 		console.error(`Error: ${error.stack}`);
 		response.status(500).json();
