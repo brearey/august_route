@@ -8,9 +8,6 @@ const helmet = require('helmet');
 const app = express();
 const api = require('./src/api');
 
-app.get('/', (request, response) => response.sendStatus(200));
-app.get('/health', (request, response) => response.sendStatus(200));
-
 app.use(morgan('short'));
 app.use(express.json());
 app.use(
