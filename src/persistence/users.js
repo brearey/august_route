@@ -24,9 +24,9 @@ module.exports = {
 			throw error;
 		}
 	},
-	async find(email) {
+	async find(data) {
 		const {rows} = await db.query(sql`
-    SELECT * FROM users WHERE email=${email} LIMIT 1;
+    SELECT * FROM users WHERE email=${data.email} LIMIT 1;
     `);
 		return rows[0];
 	}

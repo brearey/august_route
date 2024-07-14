@@ -1,20 +1,20 @@
-const { Router } = require('express');
+const {Router} = require('express');
 const User = require('../persistence/users');
 
 const router = new Router();
 
 router.post('/', async (request, response) => {
 	try {
-		const { email, password } = request.body;
+		const {email, password} = request.body;
 		if (!email || !password) {
 			return response
 				.status(400)
-				.json({ message: 'email and password must be provided' });
+				.json({message: 'email and password must be provided'});
 		}
 
 		const user = await User.create(email, password);
 		if (!user) {
-			return response.status(400).json({ message: 'User already exists' });
+			return response.status(400).json({message: 'User already exists'});
 		}
 
 		return response.status(200).json(user);
@@ -28,9 +28,11 @@ router.post('/', async (request, response) => {
 
 router.get('/me', async (request, response) => {
 	try {
-		const user = await User.find(request.query.email);
+		const user = await User.find({
+			email: request.query.email
+		});
 		if (!user) {
-			return response.status(404).json({ message: `User with email: ${request.query.email} not found` });
+			return response.status(404).json({message: `User with email: ${request.query.email} not found`});
 		}
 
 		return response.status(200).json(user);
