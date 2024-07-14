@@ -10,7 +10,7 @@ _Сроки: 13.07.2024 - 01.08.2024_
 
 ```bash
 SESSION_SECRET=brearey
-PORT=3000
+PORT=80
 DATABASE_URL=postgres://user:pass@postgres:35432/db
 ```
 
@@ -18,4 +18,4 @@ DATABASE_URL=postgres://user:pass@postgres:35432/db
 
 1. `docker-compose up`
 2. in app container run migrations: `npm run migrate up`
-3. use: `http://localhost:3000`
+3. use: `http://localhost`
