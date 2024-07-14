@@ -36,7 +36,7 @@ router.get('/me', async (request, response) => {
 		return response.status(200).json(user);
 	} catch (error) {
 		console.error(
-			`createUser({ email: ${request.query.email} }) >> Error: ${error.stack}`
+			`find User ({ email: ${request.query.email} }) >> Error: ${error.stack}`
 		);
 		response.status(500).json();
 	}
