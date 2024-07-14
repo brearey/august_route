@@ -23,9 +23,9 @@ app.use(api);
 
 let server;
 module.exports = {
-	start(port) {
-		server = app.listen(port, () => {
-			console.log(`App started on port ${port} and mode=${app.get('env')}`);
+	start() {
+		server = app.listen(process.env.PORT, () => {
+			console.log(`App started on port ${process.env.PORT} and mode=${app.get('env')}`);
 		});
 		return app;
 	},
