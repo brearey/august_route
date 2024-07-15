@@ -13,6 +13,6 @@ router.use('/api/sessions', session);
 
 router.use('/', mainRouter);
 
-router.use('*', (request, response) => response.render('404', { title: 'August - Not found' }));
+router.use('*', (request, response) => response.render('404', { title: 'Not found', appName: 'August app' }));
 
 module.exports = router;
