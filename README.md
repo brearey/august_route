@@ -9,6 +9,7 @@ _Сроки: 13.07.2024 - 01.08.2024_
 ### ENV
 
 ```bash
+NODE_ENV=development
 SESSION_SECRET=YOUR_SECRET
 PORT=80
 DATABASE_URL=postgres://YOUR_LOGIN:YOUR_PASSWORD@postgres:35432/YOUR_DB_NAME
@@ -16,6 +17,10 @@ POSTGRES_USER=YOUR_LOGIN
 POSTGRES_PASSWORD=YOUR_PASSWORD
 POSTGRES_DB=YOUR_DB_NAME
 ```
+
+# Public folder
+
+Create the /public folder on root directory and paste there bootstrap css and js files.
 
 # RUN APP
 
