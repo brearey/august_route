@@ -24,6 +24,7 @@ Create the /public folder on root directory and paste there bootstrap css and js
 
 # RUN APP
 
-1. `docker-compose up`
+1. `docker-compose up -d`
 2. in app container run migrations: `npm run migrate up`
+    or `docker exec -it CONTAINER sh` and `npm run migrate up`
 3. use: `http://localhost`
