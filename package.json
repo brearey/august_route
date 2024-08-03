@@ -19,6 +19,7 @@
   ],
   "author": "brearey",
   "dependencies": {
+    "axios": "^1.7.3",
     "bcrypt": "^5.0.1",
     "client-sessions": "^0.8.0",
     "dotenv": "^16.4.5",
@@ -28,7 +29,6 @@
     "migrate": "^1.7.0",
     "morgan": "^1.10.0",
     "pg": "^8.7.1",
-    "request": "^2.88.2",
     "sql-template-strings": "^2.2.2",
     "uuid": "^8.3.2"
   },

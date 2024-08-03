@@ -16,6 +16,7 @@ DATABASE_URL=postgres://YOUR_LOGIN:YOUR_PASSWORD@postgres:5432/YOUR_DB_NAME
 POSTGRES_USER=YOUR_LOGIN
 POSTGRES_PASSWORD=YOUR_PASSWORD
 POSTGRES_DB=YOUR_DB_NAME
+GIGACHAT_AUTH_DATA=YOUR_AUTH_DATA
 ```
 
 # Public folder
@@ -26,5 +27,5 @@ Create the /public folder on root directory and paste there bootstrap css and js
 
 1. `docker-compose up -d`
 2. in app container run migrations: `npm run migrate up`
-    or `docker exec -it CONTAINER sh` and `npm run migrate up`
+   or `docker exec -it CONTAINER sh` and `npm run migrate up`
 3. use: `http://localhost`
