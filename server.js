@@ -16,7 +16,7 @@ app.engine('handlebars', engine({
 app.set('view engine', 'handlebars');
 app.set('views', './src/views');
 
-app.use(express.static(__dirname + '/src/public'));
+app.use(express.static(__dirname + '/public'));
 app.use(morgan('short'));
 app.use(express.json());
 app.use(
